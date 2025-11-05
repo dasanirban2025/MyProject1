@@ -1,0 +1,148 @@
+
+
+/* === Reset default styles === */
+/* === Reset default styles === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* === Page layout === */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg,#bad6e1,rgb(110, 110, 243)); /* soft blue gradient */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: white; 
+  padding: 40px 20px;
+}
+
+/* === Heading === */
+h1 {
+  font-size: 36px;
+  margin-bottom: 25px;
+  background: linear-gradient(90deg, white); /* white text gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* === Quiz container === */
+.quiz-container {
+  width: 90%;
+  max-width: 750px;
+  background: blueviolet;
+  backdrop-filter: blur(15px);
+  border-radius: 25px;
+  padding: 30px 35px;
+}
+
+/* === Question block === */
+.question {
+  /* background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15); */
+  border-radius: 15px;
+  margin-bottom: 25px;
+  padding: 18px 20px;
+  text-align: left;
+}
+
+/* Make question text bigger */
+.question p {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* === Answer options === */
+label {
+  display: block;
+  margin: 8px 0;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  accent-color: #4ade80;
+  transform: scale(1.2);
+  margin-right: 8px;
+}
+
+/* === Submit button (flat color) === */
+button[type="button"] {
+  margin-top: 15px;
+  background-color: #3b82f6; /* flat blue */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button[type="button"]:hover {
+  background-color: #2563eb; /* darker blue on hover */
+}
+
+/* === Result text === */
+#result {
+  margin-top: 25px;
+  font-size: 24px;
+  font-weight: 600;
+ 
+}
+
+/* === Back button (flat color) === */
+.back {
+  margin-top: 45px;
+  padding: 12px 28px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #ef4444; /* flat red */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.back:hover {
+  background-color: #dc2626; /* darker red on hover */
+}
+
+/* === Mobile responsive === */
+@media (max-width: 600px) {
+  .quiz-container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .question p {
+    font-size: 18px;
+  }
+
+  label {
+    font-size: 15px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 10px 25px;
+  }
+}
+
+#timer {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #fff;
+}

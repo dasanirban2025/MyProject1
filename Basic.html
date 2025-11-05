@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Python Quiz</title>
+  <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+  <h1>🟢 Basic Type Python Questions</h1>
+ <div id="timer">⏳ Time Left: <span id="time">120</span> seconds</div>
+
+  <form id="quizForm" class="quiz-container">
+    <div class="question">
+      <p>1. When was Python officially released?</p>
+      <label><input type="radio" name="q1" value="a"> 1985</label><br>
+      <label><input type="radio" name="q1" value="b"> 1990</label><br>
+      <label><input type="radio" name="q1" value="c"> 1991</label><br>
+      <label><input type="radio" name="q1" value="d"> 1995</label>
+    </div>
+
+    <div class="question">
+      <p>2. The name "Python" was inspired by:</p>
+      <label><input type="radio" name="q2" value="a"> The Python snake</label><br>
+      <label><input type="radio" name="q2" value="b"> Monty Python’s Flying Circus</label><br>
+      <label><input type="radio" name="q2" value="c"> A programming contest</label><br>
+      <label><input type="radio" name="q2" value="d"> The inventor’s nickname</label>
+    </div>
+
+    <div class="question">
+      <p>3. Strings in Python are:</p>
+      <label><input type="radio" name="q3" value="a"> Mutable</label><br>
+      <label><input type="radio" name="q3" value="b"> Immutable</label><br>
+      <label><input type="radio" name="q3" value="c"> Static</label><br>
+      <label><input type="radio" name="q3" value="d"> Changeable</label>
+    </div>
+
+    <div class="question">
+      <p>4. Which slicing operation reverses a string?</p>
+      <label><input type="radio" name="q4" value="a"> s[::-1]</label><br>
+      <label><input type="radio" name="q4" value="b"> s[1:]</label><br>
+      <label><input type="radio" name="q4" value="c"> s[-1:]</label><br>
+      <label><input type="radio" name="q4" value="d"> reverse(s)</label>
+    </div>
+
+    <button type="button" onclick="checkAnswers()">Submit Answers</button>
+  </form>
+
+  <div id="result"></div>
+
+  <button class="back" onclick="window.location.href='index.html'">⬅ Back to Dashboard</button>
+
+  <script>
+     // Timer setup
+    let timeLeft = 120;
+    const timerDisplay = document.getElementById("time");
+
+    const countdown = setInterval(() => {
+      timeLeft--;
+      timerDisplay.textContent = timeLeft;
+
+      if (timeLeft <= 0) {
+        clearInterval(countdown);
+        alert("⏰ Time's up! Submitting your answers.");
+        checkAnswers();
+      }
+    }, 1000);
+
+    
+
+
+    function checkAnswers() {
+      // Correct answers
+      const correctAnswers = {
+        q1: 'c',
+        q2: 'b',
+        q3: 'b',
+        q4: 'a'
+      };
+
+      let score = 0;
+      let total = Object.keys(correctAnswers).length;
+
+      // Check each answer
+      for (let key in correctAnswers) {
+        const selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected && selected.value === correctAnswers[key]) {
+          score++;
+        }
+      }
+
+      // Display result
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = `<h2>Your Score: ${score} / ${total}</h2>`;
+      resultDiv.style.marginTop = "20px";
+      resultDiv.style.fontSize = "22px";
+      resultDiv.style.color = score === total ? "lime" : "white";
+    }
+  </script>
+</body>
+</html>
